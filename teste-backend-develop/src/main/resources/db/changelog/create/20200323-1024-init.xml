@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="1" author="claiton.nazaret">
+        <preConditions onFail="MARK_RAN" onFailMessage="Tabela transação já existe">
+            <not>
+                <tableExists tableName="transacao"/>
+            </not>
+        </preConditions>
+        <comment>Criando a tabela transacao</comment>
+        <createTable tableName="transacao">
+            <column name="id" autoIncrement="true" type="bigint">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_transacao"/>
+            </column>
+            <column name="nsu" type="char(7)">
+                <constraints nullable="false" />
+            </column>
+            <column name="valor" type="double">
+                <constraints nullable="false" />
+            </column>
+            <column name="liquido" type="double"/>
+            <column name="bandeira" type="char(10)"/>
+            <column name="modalidade" type="char(7)"/>
+            <column name="horario" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP" />
+            <column name="disponivel" type="DATE" />
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
