@@ -4,10 +4,12 @@ import br.com.claiton.enuns.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -26,6 +28,8 @@ public class Transacao extends SuperEntity {
 
     @Enumerated(EnumType.STRING)
     private ModalidadeEnum modalidade;
+
+    private LocalDateTime horario;
 
     private Date disponivel;
 

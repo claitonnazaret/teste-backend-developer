@@ -2,6 +2,7 @@ spring:
   application:
     name: claiton
 
+
   liquibase:
     change-log: classpath:db/master.xml
     enabled: true

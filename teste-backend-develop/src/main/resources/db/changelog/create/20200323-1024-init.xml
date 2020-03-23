@@ -23,9 +23,15 @@
                 <constraints nullable="false" />
             </column>
             <column name="liquido" type="double"/>
-            <column name="bandeira" type="char(10)"/>
-            <column name="modalidade" type="char(7)"/>
-            <column name="horario" type="TIMESTAMP" defaultValueComputed="CURRENT_TIMESTAMP" />
+            <column name="bandeira" type="char(10)">
+                <constraints nullable="false" />
+            </column>
+            <column name="modalidade" type="char(7)">
+                <constraints nullable="false" />
+            </column>
+            <column name="horario" type="TIMESTAMP">
+                <constraints nullable="false" />
+            </column>
             <column name="disponivel" type="DATE" />
         </createTable>
     </changeSet>
