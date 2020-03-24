@@ -1,0 +1,71 @@
+swagger: "2.0"
+info:
+  title: Teste Backend-develop
+  description: Teste realizado para vaga de Backend Developer EyeMobile
+  version: 1.0.0
+  contact:
+    email: "claitonnazaret@gmail.com"
+host: localhost:8080
+basePath: /api
+schemes:
+  - http
+paths:
+  /terminal/:
+    post:
+      summary: Envia um objeto json e retorna o objeto Transacao.
+      description: Efetua as transações para a API
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: transacao
+          description: dados da transação
+          schema:
+            type: object
+            required:
+              - nsu
+              - valor
+              - bandeira
+              - modalidade
+              - horario
+            properties:
+              nsu:
+                type: string
+              valor:
+                type: number
+              bandeira:
+                type: string
+                enum: [VISA, MASTERCARD, ELO, AMEX]
+              modalidade:
+                type: string
+                enum: [DEBITO, CREDITO]
+              horario:
+                type: string
+                format: 'date-time'
+      responses:
+        200:
+          description: Um Objeto Transação com o campo "disponivel" e "liquido" preenchidos
+        403:
+          description: Usuário sem permissão
+  /portal/list:
+    get:
+      summary: Recebe uma lista de transações realizadas
+      description: Recebe todas as transações realizadas
+      produces:
+        - application/json
+      responses:
+        200:
+          description: Uma lista de transações realizadas
+        403:
+          description: Usuário sem permissão
+  /portal/saldo:
+    get:
+      summary: Recebe um objeto VO SaldoVO
+      description: Recebe um VO SaldoVO com saldo disponível hoje e a receber
+      produces:
+        - application/json
+      responses:
+        200:
+          description: Um objecto VO com saldo disponivel hoje e a receber
+        403:
+          description: Usuário sem permissão

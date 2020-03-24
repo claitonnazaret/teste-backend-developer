@@ -3,14 +3,9 @@ package br.com.claiton.resource;
 import br.com.claiton.domain.Transacao;
 import br.com.claiton.service.TransacaoService;
 import br.com.claiton.vo.SaldoVO;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.Date;
 import java.util.List;
 
 @RestController
